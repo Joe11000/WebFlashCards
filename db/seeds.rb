@@ -1,0 +1,5 @@
+User.create(name: "Joe", password_digest: "a", email: "hi@me.com")
+Round.create(user_id: 1, deck_id: 1, score: 2)
+Deck.create(name: "test")
+Card.create(question: "how are you?", answer: "feeling good vibrations", deck_id: 1)
+Guess.create(round_id: 1, card_id: 1, correct: true)
