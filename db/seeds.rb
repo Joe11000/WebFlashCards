@@ -1,7 +1,7 @@
 joe = User.create(name: "Joe", password: "joe", email: "joe@dbc.com")
 colleen = User.create(name: "Colleen", password: "colleen", email: "colleen@dbc.com")
 ned = User.create(name: "Ned", password: "ned", email: "ned@dbc.com")
-mark = User.create(name: "Mark", password: "mark", email: "mark@dbc.com")
+mark = User.create(name: "Mark", password: "mark", email: "markymark@funkybunch.com")
 
 marky_mark = Deck.create(name: "Good Migrations")
 Card.create(question: "How are you feeling?", answer: "feeling good vibrations", deck_id: marky_mark.id)
