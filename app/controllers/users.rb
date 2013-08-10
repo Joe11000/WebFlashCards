@@ -16,8 +16,7 @@ post '/users/new' do
   redirect "/users/#{@user.name}"
 end
 
-post '/users/logout' do
-
+get '/users/logout' do
   session[:user_id] = nil
   redirect '/'
 end
