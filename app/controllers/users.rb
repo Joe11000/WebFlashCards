@@ -1,4 +1,3 @@
-
 post '/users/login' do
   puts params[:post].inspect
   
@@ -13,13 +12,10 @@ post '/users/login' do
 end
 
 post '/users/new' do
-
   @user = User.create(params[:post])
   session[:user_id] = @user.id 
   redirect "/users/#{@user.name}"
-
 end
-
 
 post '/users/logout' do
 
