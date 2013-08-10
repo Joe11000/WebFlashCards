@@ -8,3 +8,19 @@
   </ul>
   
 </div>
+
+
+<h3>Previous Games Statistic</h3>
+<h4>Statistics By Round</h4>
+<ul>
+  <% @rounds.each_with_index do |round, index|%>
+    <li>Deck "<%= round.shuffled_deck.name %>" Game <%= @round.size - index %> : <%= round.score %>%</li>
+  <% end %>
+</ul>
+
+<h4>Statistics By Deck</h4>
+<ul>
+  <% @rounds.shuffled_deck.each_with_index do |shuffled_deck, index|%>
+    <li>Deck "<%= shuffled_deck.name %>" : <%= shuffled_deck.round.score %>%</li>
+  <% end %>
+</ul>
