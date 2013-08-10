@@ -1,10 +1,8 @@
-
 post '/users/login' do
   puts params[:post].inspect
   
   if User.authenticate(params[:post])
     @user = User.find_by_email(params[:post][:email])
-    puts @user
     session[:user_id] = @user.id 
     redirect "/users/#{@user.name}"
   else
@@ -13,13 +11,10 @@ post '/users/login' do
 end
 
 post '/users/new' do
-
   @user = User.create(params[:post])
   session[:user_id] = @user.id 
   redirect "/users/#{@user.name}"
-
 end
-
 
 post '/users/logout' do
 

@@ -2,8 +2,27 @@
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+
+  background-color: white;
+  font-family: helvetica;
+
+  border: 2px solid #5a5a5a;
+  border-radius: 11px;
 }
 th {
   text-align: left;
+}
+
+html {
+  background-color: #cccccc;
+}
+
+a {
+  color: #05a799;
+}
+
+.container ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
 }

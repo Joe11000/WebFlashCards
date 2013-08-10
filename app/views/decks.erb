@@ -1,6 +1,11 @@
-<h1>Big Throbbing Decks</h1>
+<div class="container">
+  <h1>Select a Deck</h1>
+
+  <ul>
   <% if @decks %>
-  <% @decks.each do |deck| %>
-    <a href="/decks/<%= deck.name %>/create_round"><%= deck.name %></a>
+    <% @decks.each do |deck| %>
+      <li><a href="/decks/<%= deck.name %>/create_round"><%= deck.name %></a></li>
+    <% end %>
   <% end %>
-  <% end %>
+  </ul>
+</div>
