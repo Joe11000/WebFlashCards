@@ -1,0 +1,7 @@
+<% if @card.correct == true %>
+  <h1> Correct! </h1>
+  <% else %>
+  <h1> If this were 6th century China, you'd be executed for being wrong. </h1>
+<% end %>
+
+<a href="/decks/<%= @shuffled_deck_id %>/<%= @round_id %>">Next Question!</a>
