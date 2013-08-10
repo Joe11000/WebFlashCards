@@ -16,10 +16,10 @@
       <% end %>
     </ul>
 
-    <h4>Statistics By Deck</h4>
+    <h4>Average Deck Score</h4>
     <ul>
-      <% @rounds.each_with_index do |round, index|%>
-        <li>Deck "<%= round.shuffled_deck.name %>" : <%= round.score %>%</li>
+      <% @decks.each do |key, value|%>
+        <li>Deck: "<%= key %>" - <%= value %>%</li>
       <% end %>
     </ul>
   <% end %>
