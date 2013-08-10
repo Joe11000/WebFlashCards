@@ -25,5 +25,16 @@ end
 get '/users/:user_name' do
   @user = User.find_by_name(params[:user_name])
   @rounds = @user.rounds.reverse
+  
+
+  @decks = Hash.new([])
+
+  @rounds.each do |round|
+    @decks[Deck.find(round.deck_id).name] += [round.score]
+  end
+
+  @decks.each do |key, value|
+    @decks[key] = average_value(value).round
+  end
   erb :user
 end
