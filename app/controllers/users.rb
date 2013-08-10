@@ -3,7 +3,6 @@ post '/users/login' do
   
   if User.authenticate(params[:post])
     @user = User.find_by_email(params[:post][:email])
-    puts @user
     session[:user_id] = @user.id 
     redirect "/users/#{@user.name}"
   else
