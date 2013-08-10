@@ -1,27 +1,21 @@
-#1
 get '/decks' do 
   @decks = Deck.all
-  # list out the decks
-  # @user = 
   erb :decks
 end
-
-#2
 
 get '/decks/:deck_name/create_round' do
   #create a round
   @deck = Deck.find_by_name(params[:deck_name])
-
   @round = Round.create(user_id: current_user.id, deck_id: @deck.id)
-  
   
   #create a shuffled deck
   @shuffled_deck = ShuffledDeck.create(name: @deck.name, round_id: @round.id)
   
   #create the cards for the shuffled deck
-    @deck.cards.each do |card|
-       ShuffledDeckCard.create(question: card.question, answer: card.answer, shuffled_deck_id: @shuffled_deck.id)
-    end
+  @deck.cards.each do |card|
+     ShuffledDeckCard.create(question: card.question, answer: card.answer, shuffled_deck_id: @shuffled_deck.id)
+  end
+
   #route to '/decks/:deck_name/:round/:card_id'
   redirect to "/decks/#{@shuffled_deck.id}/#{@round.id}" 
 end
@@ -33,6 +27,7 @@ get '/decks/:shuffled_deck_id/:round_id' do
   cards = ShuffledDeckCard.where(shown: false, shuffled_deck_id: params[:shuffled_deck_id])
   if cards.empty?
     redirect to "/rounds/#{params[:shuffled_deck_id]}/score"
+    
   end
   @card = cards.sample
   @round_id = params[:round_id]

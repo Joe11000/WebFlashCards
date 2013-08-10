@@ -1,12 +1,14 @@
+<div class="container">
+  <h1><%= @card.shuffled_deck.name %> Flashcards</h1>
+  
+  <p><%= @card.question %></p>
+  <p>(<%= @card.answer %>)</p>
+
+  <form name="form" action="/decks/<%= @shuffled_deck_id %>/<%= @round_id %>" method="post">
+      <input type="text" name="answer">
+      <input type="submit" value="submit bitch">
+      <input type="hidden" name="card_id" value="<%= @card.id %>">
+  </form>
+</div>
 
 
-<p><%= @card.question %></p>
-<p><%= @card.answer %></p>
-
-
-
-<form name="form" action="/decks/<%= @shuffled_deck_id %>/<%= @round_id %>" method="post">
-    <input type="text" name="answer">
-    <input type="submit" value="submit bitch">
-    <input type="hidden" name="card_id" value="<%= @card.id %>">
-</form>
