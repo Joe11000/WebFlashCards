@@ -21,6 +21,7 @@ get '/decks/:deck_name/create_round' do
 end
 
 get '/decks/:shuffled_deck_id/:round_id' do
+  #shuffle here, pass the current card to a view
   
   #get an array of unused cards, save a random one to a var to pass to the 
   cards = []
@@ -35,7 +36,6 @@ get '/decks/:shuffled_deck_id/:round_id' do
   # if params[:card_id] + 1 > 
   
   erb :question
-#shuffle here, pass the current card to a view
 end
 
 post '/decks/:shuffled_deck_id/:round_id' do
@@ -50,7 +50,6 @@ post '/decks/:shuffled_deck_id/:round_id' do
   
   erb :results
 
-  # redirect to "/decks/#{params[:shuffled_deck_id]}/#{params[:round_id]}"
 
 end
 
