@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   before_save :password
   validate :email, uniqueness: true
+  validate :name, uniqueness: true
 
   include BCrypt
 
@@ -21,9 +22,9 @@ class User < ActiveRecord::Base
     self.password_digest = @password
   end
 
-  def self.authenticate(email, password)
-    @user = User.find_by_email(email)
-    if @user && @user.password == password
+  def self.authenticate(arguments = {} )
+    @user = User.find_by_email(arguments[:email])
+    if @user && @user.password == arguments[:password]
       return @user
     else
       return nil

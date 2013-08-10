@@ -1,0 +1,6 @@
+<h1>Big Throbbing Decks</h1>
+  <% if @decks %>
+  <% @decks.each do |deck| %>
+    <a href="/decks/<%= deck.name %>//1"><%= deck.name %></a>
+  <% end %>
+  <% end %>

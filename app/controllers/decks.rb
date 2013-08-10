@@ -1,7 +1,9 @@
 #1
 get '/decks' do 
-
+  @decks = Deck.all
   # list out the decks
+  @user = 
+  erb :decks
 end
 
 #2
