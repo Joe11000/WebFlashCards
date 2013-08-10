@@ -3,7 +3,6 @@ get 'users/:user_name' do
   erb :user
 end
 
-
 post '/users/login' do
 
   if User.authenticate(params[:email], params[:password])
