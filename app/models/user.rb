@@ -2,15 +2,16 @@
 # t.string    :password_digest
 # t.string    :email
 class User < ActiveRecord::Base
-  has_many  :rounds                                                                                                                                                              
+  has_many  :rounds
+
   has_many  :decks, through: :rounds
-  has_many  :guesses, through: :rounds
-  
+  has_many  :shuffled_decks, through: :rounds
+
   before_save :password
   validate :email, uniqueness: true
 
   include BCrypt
-  
+
   def password
     @password ||= BCrypt::Password.new(password_digest)
   end
@@ -28,5 +29,4 @@ class User < ActiveRecord::Base
       return nil
     end
   end
-
 end
