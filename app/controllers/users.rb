@@ -24,5 +24,6 @@ end
 
 get '/users/:user_name' do
   @user = User.find_by_name(params[:user_name])
+  @rounds = @user.rounds.reverse
   erb :user
 end
