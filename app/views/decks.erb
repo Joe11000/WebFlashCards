@@ -1,6 +1,6 @@
 <h1>Big Throbbing Decks</h1>
   <% if @decks %>
   <% @decks.each do |deck| %>
-    <a href="/decks/<%= deck.name %>//1"><%= deck.name %></a>
+    <a href="/decks/<%= deck.name %>/create_round"><%= deck.name %></a>
   <% end %>
   <% end %>
