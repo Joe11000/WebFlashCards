@@ -1,9 +1,9 @@
 <!-- view -->
 <div class="container">
-  <h1><%= @user.name %>'s Page</h1>
+  <h1><%= @user_name %>'s Page</h1>
 
   <ul>
-    <li><a href="/decks">Select a Deck</a></li>
+    <li><a href="/<%= @user_name %>/decks">Select a Deck</a></li>
     <li>Create a Deck</li>
     <li><a href ="/users/logout">Logout</a></li>
   </ul>

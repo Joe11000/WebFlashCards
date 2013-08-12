@@ -1,5 +1,6 @@
-get '/rounds/:shuffled_deck_id/score' do
-  
+get '/:user_name/rounds/:shuffled_deck_id/score' do
+  authenticate_user(session[:user_id], params[:user_name])
+
   @cards = ShuffledDeckCard.where(shuffled_deck_id: params[:shuffled_deck_id])
 
   number_of_correct = @cards.correct.size

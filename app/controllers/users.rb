@@ -22,9 +22,10 @@ get '/users/logout' do
 end
 
 get '/users/:user_name' do
-  @user = User.find_by_name(params[:user_name])
-  @rounds = @user.rounds.reverse
   
+  user = User.find_by_name(params[:user_name])
+  authenticate_user(user.id, params[:user_name])
+  @rounds = user.rounds.reverse
 
   @decks = Hash.new([])
 
@@ -35,5 +36,9 @@ get '/users/:user_name' do
   @decks.each do |key, value|
     @decks[key] = average_value(value).round
   end
+  @user_name = user.name
   erb :user
 end
+
+
+

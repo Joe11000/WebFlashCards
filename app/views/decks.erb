@@ -4,7 +4,7 @@
   <ul>
   <% if @decks %>
     <% @decks.each do |deck| %>
-      <li><a href="/decks/<%= deck.name %>/create_round"><%= deck.name %></a></li>
+      <li><a href="/<%= @user_name%>/decks/<%= deck.name %>/create_round"><%= deck.name %></a></li>
     <% end %>
   <% end %>
   </ul>
